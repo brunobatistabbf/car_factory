@@ -1,5 +1,6 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
+from typing import Tuple
 
 
 class IFabricaCarros(ABC):
@@ -18,16 +19,22 @@ class FabricaToyota(IFabricaCarros):
     def carroSedan(self) -> ICarroSedan:
         return Corolla()
 
-    def carroSUV(self) -> IcarroSUV:
-        return CorollaCross(), RAV4()
+    def carroSUV(self, suv="Corolla Cross"):
+        if(suv == "Corolla Cross"):
+            return CorollaCross()
+        else:
+            return RAV4()
 
 class FabricaHonda(IFabricaCarros):
 
     def carroSedan(self) -> ICarroSedan:
         return Civic()
 
-    def carroSUV(self) -> IcarroSUV:
-        return HRV(), CRV()
+    def carroSUV(self, suv="HRV"):
+        if(suv == "HRV"):
+            return HRV()
+        else:
+            return CRV()
 
 #abstract product A
 class ICarroSedan(ABC):
@@ -60,11 +67,11 @@ class Civic(ICarroSedan):
 #abstract product B
 class IcarroSUV(ABC):
     @abstractmethod
-    def exibirInfoSedan(self):
+    def exibirInfoSUV(self):
         pass
 
 class CorollaCross(IcarroSUV):
-    def exibirInfoSedan(self):
+    def exibirInfoSUV(self):
         print("\n")
         print("--Corolla Cross--")
         print("Cor: Cinza Granito")
@@ -75,7 +82,7 @@ class CorollaCross(IcarroSUV):
         print("\n")
 
 class HRV(IcarroSUV):
-    def exibirInfoSedan(self):
+    def exibirInfoSUV(self):
         print("\n")
         print("--HRV--")
         print("Cor: Cinza Granito")
@@ -86,7 +93,7 @@ class HRV(IcarroSUV):
         print("\n")
 
 class RAV4(IcarroSUV):
-    def exibirInfoSedan(self):
+    def exibirInfoSUV(self):
         print("\n")
         print("--RAV 4--")
         print("Cor: Branco")
@@ -97,7 +104,7 @@ class RAV4(IcarroSUV):
         print("\n")
 
 class CRV(IcarroSUV):
-    def exibirInfoSedan(self):
+    def exibirInfoSUV(self):
         print("\n")
         print("--CR-V--")
         print("Cor: Cinza")
