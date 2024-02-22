@@ -19,7 +19,7 @@ class FabricaToyota(IFabricaCarros):
         return Corolla()
 
     def carroSUV(self) -> IcarroSUV:
-        return CorollaCross()
+        return CorollaCross(), RAV4()
 
 class FabricaHonda(IFabricaCarros):
 
@@ -27,7 +27,7 @@ class FabricaHonda(IFabricaCarros):
         return Civic()
 
     def carroSUV(self) -> IcarroSUV:
-        return HRV()
+        return HRV(), CRV()
 
 #abstract product A
 class ICarroSedan(ABC):
@@ -37,19 +37,25 @@ class ICarroSedan(ABC):
 
 class Corolla(ICarroSedan):
     def exibirInfoSedan(self):
+        print("\n")
+        print("--Corolla--")
         print("Cor: Branco")
         print("Valor: R$ 148.000,00")
         print("Ano: 2024")
         print("Motor: 2.0")
         print("Potência: 175cv")
+        print("\n")
 
 class Civic(ICarroSedan):
     def exibirInfoSedan(self):
+        print("\n")
+        print("--CIVIC--")
         print("Cor: Branco")
         print("Valor: R$ 259.000,00")
         print("Ano: 2024")
         print("Motor: 2.0")
         print("Potência: 297HP")
+        print("\n")
 
 #abstract product B
 class IcarroSUV(ABC):
@@ -59,16 +65,44 @@ class IcarroSUV(ABC):
 
 class CorollaCross(IcarroSUV):
     def exibirInfoSedan(self):
+        print("\n")
+        print("--Corolla Cross--")
         print("Cor: Cinza Granito")
         print("Valor: R$ 164.000,00")
         print("Ano: 2024")
         print("Motor: 2.0 DUAL")
         print("Potência: 177cv")
+        print("\n")
 
 class HRV(IcarroSUV):
     def exibirInfoSedan(self):
-        print("Cor: Branco")
-        print("Valor: R$ 259.000,00")
+        print("\n")
+        print("--HRV--")
+        print("Cor: Cinza Granito")
+        print("Valor: R$ 195.800,00")
         print("Ano: 2024")
-        print("Motor: 2.0")
-        print("Potência: 297HP")
+        print("Motor: 1.5L")
+        print("Potência: 177HP")
+        print("\n")
+
+class RAV4(IcarroSUV):
+    def exibirInfoSedan(self):
+        print("\n")
+        print("--RAV 4--")
+        print("Cor: Branco")
+        print("Valor: R$ 344.800,00")
+        print("Ano: 2024")
+        print("Motor: 2.5")
+        print("Potência: 222HP")
+        print("\n")
+
+class CRV(IcarroSUV):
+    def exibirInfoSedan(self):
+        print("\n")
+        print("--CR-V--")
+        print("Cor: Cinza")
+        print("Valor: R$ 189.800,00")
+        print("Ano: 2019")
+        print("Motor: 1.5")
+        print("Potência: 200cv")
+        print("\n")
